@@ -7,61 +7,150 @@
  */
 const USER_CONFIG = {
 
-  // 使用微信测试号：公众号APP_ID
-  APP_ID: '',
-
-  // 使用微信测试号：公众号APP_SECRET
-  APP_SECRET: '',
-
-  PROVINCE: '广东',
-  CITY: '惠州',
-
-  USERS: [
-    {
-      // 想要发送的人的名字
-      name: '宝贝',
-      // 使用微信测试号：扫码关注你的微信测试号后生成的一段字符串，在测试号后台能看到
-      id: '',
-      // 使用微信测试号：你想对他发送的模板消息的模板ID
-      useTemplateId: '',
-      // 新历生日, 仅用作获取星座运势, 格式必须为MM-DD
-      horoscopeDate: '12-27',
-      festivals: [
-        // 注意：此条配置日期为阴历日期，因为`type`中 “生日” 之前有 * 符号
-        {
-          type: '*生日', name: '宝贝', year: '1996', date: '09-09',
-        },
-        // 注意：此条配置日期为阳历日期，因为`type`中 “生日” 之前没有 * 符号
-        {
-          type: '生日', name: '李四', year: '1996', date: '09-31',
-        },
-        {
-          type: '节日', name: '相识纪念日', year: '2020', date: '09-03',
-        },
-      ],
-      // 我们在一起已经有xxxx天了的配置
-      customizedDateList: [
-        // 在一起的日子
-        { keyword: 'love_day', date: '2022-09-08' },
-        // 结婚纪念日
-        { keyword: 'marry_day', date: '2022-09-09' },
-      ],
+    MAX_PUSH_ONE_MINUTE : 5,
+    SLEEP_TIME : 65000,
+    
+    SWITCH : {
+        weather : true,
+        holidaytts : true,
+        birthdayMessage : true,
+        courseSchedule : true,
     },
-  ],
 
+    IS_SHOW_COLOR : true,
+    LITERARY_PREFERENCE: '',
 
-  // 【推送完成提醒】模板id, 用来看自己有没有发送成功的那个模板
-  CALLBACK_TEMPLATE_ID: '',
+    USERS : [{
+        name : '昔一西',
+        id : 'okZMZ6qePLmRdNps4vMuqKrE4lAU',
+        useTemplateId : 'xo28CXSldg_UpEKziHGKzI-ZNOsxUDUV1FlRzKoMZnw',
 
-  CALLBACK_USERS: [
-    {
-      name: '自己',
-      // 使用微信测试号：自己的微信id，扫码关注你的微信测试号后生成的一段字符串，在测试号后台能看到
-      id: '',
-    }
-  ],
+        province : '浙江',
+        city : '金华',
+
+        horoscopeDate : '01-16',
+
+        openUrl : 'https://chris7mas.github.io/',
+
+        festivals:[
+            {
+                type : '生日', name : '余老师', year : '1998', date : '01-16',
+            },
+            {
+                type : '节日', name : '暂定日程1', year : '1900', date : '09-02',
+            }
+        ],
+
+        customizedDateList : [
+            { keyword : 'love_day', date : '2021-11-01'}
+        ],
+
+        courseSchedule : {
+            benchmark:{
+                date: '2023-09-02',
+                isOdd : false
+            },
+
+            courses:{
+                //单周课表
+                odd : [
+                    [
+                        '3-4；马克思主义原理；博雅B502',
+                    ],
+                    [
+                        '1-2；马克思主义原理；博雅B502'
+                    ],
+                    [
+                        //5-8周
+                        //'3-4；形策；博闻B322'
+                    ],
+                    [
+                        //2-16周
+                        //'5-6；马原；博雅B502',
+                        //'7-8；马原：博雅B502'
+                    ],
+                    [],
+
+                    [//周六
+                    ],
+                    []
+
+                ]
+            }
+        }
+
+    },
+            {
+        name : 'Menth.Pan',
+        id : 'okZMZ6pv_GPQ4MjgC6qXafqR-cwg',
+        useTemplateId : 'xo28CXSldg_UpEKziHGKzI-ZNOsxUDUV1FlRzKoMZnw',
+
+        province : '浙江',
+        city : '金华',
+
+        horoscopeDate : '01-16',
+
+        openUrl : 'https://chris7mas.github.io/',
+
+        festivals:[
+            {
+                type : '生日', name : '余老师', year : '1998', date : '01-16',
+            },
+            {
+                type : '节日', name : '暂定日程1', year : '1900', date : '09-02',
+            }
+        ],
+
+        customizedDateList : [
+            { keyword : 'love_day', date : '2021-11-01'}
+        ],
+
+        courseSchedule : {
+            benchmark:{
+                date: '2023-09-02',
+                isOdd : false
+            },
+
+            courses:{
+                //单周课表
+                odd : [
+                    [
+                        '3-4；马克思主义原理；博雅B502',
+                    ],
+                    [
+                        '1-2；马克思主义原理；博雅B502'
+                    ],
+                    [
+                        //5-8周
+                        //'3-4；形策；博闻B322'
+                    ],
+                    [
+                        //2-16周
+                        //'5-6；马原；博雅B502',
+                        //'7-8；马原：博雅B502'
+                    ],
+                    [],
+
+                    [//周六
+                    ],
+                    []
+
+                ]
+            }
+        }
+
+    }],
+
+    CALLBACK_TEMPLATE_ID: 'zIaqFtqzbOJgX0lXkIVNcZbosh84sJ6S6M92KYFyQXM',
+
+    CALLBACK_USERS: [
+      {
+        name: 'Menth.Pan',
+        id: 'okZMZ6pv_GPQ4MjgC6qXafqR-cwg',
+      }
+    ],
+
 
 }
 
 module.exports = USER_CONFIG
-
